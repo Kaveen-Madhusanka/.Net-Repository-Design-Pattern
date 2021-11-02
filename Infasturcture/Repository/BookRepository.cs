@@ -10,7 +10,7 @@ namespace Infasturcture.Repository
 {
     public class BookRepository : IBookRepository
     {
-        private readonly AppDbContext _dbContext;
+        private readonly AppDbContext _dbContext; // Inject dependency 
         public BookRepository(AppDbContext dbContext)
         {
             _dbContext = dbContext;
@@ -26,6 +26,7 @@ namespace Infasturcture.Repository
         {
             return await _dbContext.Books.ToListAsync();
         }
+
 
         public async Task<Book> GetBook(int Id)
         {
